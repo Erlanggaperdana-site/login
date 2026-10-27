@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900"
+     role="img" aria-labelledby="erd-title erd-desc">
+    <title id="erd-title">ERD Crow's Foot — Aplikasi Login Multi Role</title>
+    <desc id="erd-desc">Entity Relationship Diagram notasi crow's foot: tabel users, sessions,
+        password_reset_tokens, dan tabel framework Laravel (cache, cache_locks, jobs,
+        job_batches, failed_jobs).</desc>
+
+    <style>
+        .app-box    { fill: #ffffff; stroke: #3b6fd4; stroke-width: 1.8; }
+        .app-head   { fill: #eef4ff; stroke: #3b6fd4; stroke-width: 1.8; }
+        .fw-box     { fill: #ffffff; stroke: #94a3b8; stroke-width: 1.4; }
+        .fw-head    { fill: #f1f5f9; stroke: #94a3b8; stroke-width: 1.4; }
+        .title-app  { fill: #16294f; font-size: 12px; font-weight: 700; text-anchor: middle; }
+        .title-fw   { fill: #0f172a; font-size: 11px; font-weight: 700; text-anchor: middle; }
+        .col        { fill: #1e293b; font-size: 8.5px; font-family: ui-monospace, Consolas, monospace; }
+        .type       { fill: #64748b; font-size: 8px; font-family: ui-monospace, Consolas, monospace; }
+        .rel        { stroke: #475569; stroke-width: 1.5; fill: none; }
+        .rel-soft   { stroke: #94a3b8; stroke-width: 1.4; fill: none; stroke-dasharray: 6 4; }
+        .lbl        { fill: #334155; font-size: 9px; font-weight: 600; }
+        .lbl-soft   { fill: #64748b; font-size: 8.5px; font-style: italic; }
+        .sect       { fill: #334155; font-size: 11px; font-weight: 700; }
+        .sect-sub   { fill: #94a3b8; font-size: 8.5px; }
+        .h         { fill: #16294f; font-size: 14px; font-weight: 700; }
+        .sub        { fill: #64748b; font-size: 9px; }
+        .badge-pk   { fill: #dbeafe; stroke: #3b6fd4; stroke-width: 0.8; }
+        .badge-uq   { fill: #fef3c7; stroke: #b45309; stroke-width: 0.8; }
+        .badge-fk   { fill: #dcfce7; stroke: #15803d; stroke-width: 0.8; }
+        .badge-ix   { fill: #ede9fe; stroke: #6d28d9; stroke-width: 0.8; }
+        .badge-t    { font-size: 6.5px; font-weight: 700; text-anchor: middle; }
+    </style>
+
+    <rect x="0" y="0" width="1200" height="900" fill="#ffffff"/>
+
+    <!-- ================= HEADER ================= -->
+    <text x="40" y="30" class="h">ERD — Notasi Crow's Foot</text>
+    <text x="40" y="46" class="sub">Aplikasi Login Multi Role · Laravel 12 · MySQL · database test_skenario · 8 tabel</text>
+
+    <!-- ================= SECTION: APP TABLES ================= -->
+    <text x="40" y="76" class="sect">Tabel aplikasi</text>
+    <text x="140" y="76" class="sect-sub">— dibuat/dipakai langsung oleh fitur login, register, dan CRUD user</text>
+
+    <!-- ===== users ===== -->
+    <rect x="40" y="90" width="340" height="206" class="app-box"/>
+    <rect x="40" y="90" width="340" height="34" class="app-head"/>
+    <text x="210" y="112" class="title-app">users</text>
+
+    <rect x="48" y="126" width="24" height="13" rx="2" class="badge-pk"/>
+    <text x="60" y="135.5" class="badge-t" fill="#1e3a77">PK</text>
+    <text x="82" y="137" class="col">id</text>
+    <text x="190" y="137" class="type">bigint unsigned</text>
+
+    <text x="82" y="155" class="col">name</text>
+    <text x="190" y="155" class="type">varchar(255)</text>
+
+    <rect x="48" y="162" width="24" height="13" rx="2" class="badge-uq"/>
+    <text x="60" y="171.5" class="badge-t" fill="#78350f">UQ</text>
+    <text x="82" y="173" class="col">email</text>
+    <text x="190" y="173" class="type">varchar(255)</text>
+
+    <text x="82" y="191" class="col">email_verified_at</text>
+    <text x="190" y="191" class="type">timestamp NULL</text>
+
+    <text x="82" y="209" class="col">password</text>
+    <text x="190" y="209" class="type">varchar(255)</text>
+
+    <text x="82" y="227" class="col">role</text>
+    <text x="190" y="227" class="type">varchar(255) · 'customer'</text>
+
+    <text x="82" y="245" class="col">remember_token</text>
+    <text x="190" y="245" class="type">varchar(100) NULL</text>
+
+    <text x="82" y="263" class="col">created_at</text>
+    <text x="190" y="263" class="type">timestamp NULL</text>
+
+    <text x="82" y="281" class="col">updated_at</text>
+    <text x="190" y="281" class="type">timestamp NULL</text>
+
+    <!-- ===== sessions ===== -->
+    <rect x="440" y="90" width="320" height="152" class="app-box"/>
+    <rect x="440" y="90" width="320" height="34" class="app-head"/>
+    <text x="600" y="112" class="title-app">sessions</text>
+
+    <rect x="448" y="126" width="24" height="13" rx="2" class="badge-pk"/>
+    <text x="460" y="135.5" class="badge-t" fill="#1e3a77">PK</text>
+    <text x="482" y="137" class="col">id</text>
+    <text x="590" y="137" class="type">varchar(255)</text>
+
+    <rect x="448" y="144" width="24" height="13" rx="2" class="badge-fk"/>
+    <text x="460" y="153.5" class="badge-t" fill="#14532d">FK</text>
+    <text x="482" y="155" class="col">user_id</text>
+    <text x="590" y="155" class="type">bigint NULL · index</text>
+
+    <text x="482" y="173" class="col">ip_address</text>
+    <text x="590" y="173" class="type">varchar(45) NULL</text>
+
+    <text x="482" y="191" class="col">user_agent</text>
+    <text x="590" y="191" class="type">text NULL</text>
+
+    <text x="482" y="209" class="col">payload</text>
+    <text x="590" y="209" class="type">longtext</text>
+
+    <rect x="448" y="216" width="24" height="13" rx="2" class="badge-ix"/>
+    <text x="460" y="225.5" class="badge-t" fill="#4c1d95">IX</text>
+    <text x="482" y="227" class="col">last_activity</text>
+    <text x="590" y="227" class="type">int · index</text>
+
+    <!-- ===== password_reset_tokens ===== -->
+    <rect x="820" y="90" width="330" height="100" class="app-box"/>
+    <rect x="820" y="90" width="330" height="34" class="app-head"/>
+    <text x="985" y="112" class="title-app">password_reset_tokens</text>
+
+    <rect x="828" y="126" width="24" height="13" rx="2" class="badge-pk"/>
+    <text x="840" y="135.5" class="badge-t" fill="#1e3a77">PK</text>
+    <text x="862" y="137" class="col">email</text>
+    <text x="970" y="137" class="type">varchar(255)</text>
+
+    <text x="862" y="155" class="col">token</text>
+    <text x="970" y="155" class="type">varchar(255)</text>
+
+    <text x="862" y="173" class="col">created_at</text>
+    <text x="970" y="173" class="type">timestamp NULL</text>
+
+    <!-- ================= RELATIONS (APP) ================= -->
+    <!-- users 1 : 0..N sessions -->
+    <line x1="380" y1="150" x2="428" y2="150" class="rel"/>
+    <line x1="380" y1="142" x2="380" y2="158" class="rel"/>
+    <path d="M428,150 L440,141 M428,150 L440,150 M428,150 L440,159" class="rel"/>
+    <text x="386" y="143" class="lbl">1</text>
+    <text x="402" y="143" class="lbl">0..N</text>
+    <text x="392" y="168" class="lbl-soft">user_id</text>
+
+    <!-- users 1 : 0..1 password_reset_tokens (konseptual, via email) -->
+    <polyline points="300,296 300,340 985,340 985,202" class="rel-soft"/>
+    <line x1="292" y1="298" x2="308" y2="298" class="rel"/>
+    <path d="M985,202 L976,190 M985,202 L985,190 M985,202 L994,190" stroke="#94a3b8" stroke-width="1.4" fill="none"/>
+    <text x="306" y="322" class="lbl">1</text>
+    <text x="996" y="216" class="lbl">0..1</text>
+    <text x="330" y="334" class="lbl-soft">relasi konseptual lewat kolom email — tanpa foreign key</text>
+
+    <!-- ================= SECTION: FRAMEWORK TABLES ================= -->
+    <text x="40" y="386" class="sect">Tabel framework Laravel</text>
+    <text x="220" y="386" class="sect-sub">— dibuat otomatis oleh migration, tanpa relasi ke tabel aplikasi</text>
+
+    <!-- ===== cache ===== -->
+    <rect x="40" y="430" width="300" height="100" class="fw-box"/>
+    <rect x="40" y="430" width="300" height="34" class="fw-head"/>
+    <text x="190" y="452" class="title-fw">cache</text>
+
+    <rect x="48" y="466" width="24" height="13" rx="2" class="badge-pk"/>
+    <text x="60" y="475.5" class="badge-t" fill="#1e3a77">PK</text>
+    <text x="82" y="477" class="col">key</text>
+    <text x="170" y="477" class="type">varchar(255)</text>
+
+    <text x="82" y="495" class="col">value</text>
+    <text x="170" y="495" class="type">mediumtext</text>
+
+    <text x="82" y="513" class="col">expiration</text>
+    <text x="170" y="513" class="type">int</text>
+
+    <!-- ===== cache_locks ===== -->
+    <rect x="380" y="430" width="300" height="100" class="fw-box"/>
+    <rect x="380" y="430" width="300" height="34" class="fw-head"/>
+    <text x="530" y="452" class="title-fw">cache_locks</text>
+
+    <rect x="388" y="466" width="24" height="13" rx="2" class="badge-pk"/>
+    <text x="400" y="475.5" class="badge-t" fill="#1e3a77">PK</text>
+    <text x="422" y="477" class="col">key</text>
+    <text x="510" y="477" class="type">varchar(255)</text>
+
+    <text x="422" y="495" class="col">owner</text>
+    <text x="510" y="495" class="type">varchar(255)</text>
+
+    <text x="422" y="513" class="col">expiration</text>
+    <text x="510" y="513" class="type">int</text>
+
+    <!-- ===== jobs ===== -->
+    <rect x="720" y="430" width="350" height="170" class="fw-box"/>
+    <rect x="720" y="430" width="350" height="34" class="fw-head"/>
+    <text x="895" y="452" class="title-fw">jobs</text>
+
+    <rect x="728" y="466" width="24" height="13" rx="2" class="badge-pk"/>
+    <text x="740" y="475.5" class="badge-t" fill="#1e3a77">PK</text>
+    <text x="762" y="477" class="col">id</text>
+    <text x="870" y="477" class="type">bigint unsigned</text>
+
+    <rect x="728" y="484" width="24" height="13" rx="2" class="badge-ix"/>
+    <text x="740" y="493.5" class="badge-t" fill="#4c1d95">IX</text>
+    <text x="762" y="495" class="col">queue</text>
+    <text x="870" y="495" class="type">varchar(255) · index</text>
+
+    <text x="762" y="513" class="col">payload</text>
+    <text x="870" y="513" class="type">longtext</text>
+
+    <text x="762" y="531" class="col">attempts</text>
+    <text x="870" y="531" class="type">tinyint unsigned</text>
+
+    <text x="762" y="549" class="col">reserved_at</text>
+    <text x="870" y="549" class="type">int unsigned NULL</text>
+
+    <text x="762" y="567" class="col">available_at</text>
+    <text x="870" y="567" class="type">int unsigned</text>
+
+    <text x="762" y="585" class="col">created_at</text>
+    <text x="870" y="585" class="type">int unsigned</text>
+
+    <!-- ===== job_batches ===== -->
+    <rect x="720" y="640" width="350" height="224" class="fw-box"/>
+    <rect x="720" y="640" width="350" height="34" class="fw-head"/>
+    <text x="895" y="662" class="title-fw">job_batches</text>
+
+    <rect x="728" y="676" width="24" height="13" rx="2" class="badge-pk"/>
+    <text x="740" y="685.5" class="badge-t" fill="#1e3a77">PK</text>
+    <text x="762" y="687" class="col">id</text>
+    <text x="870" y="687" class="type">varchar(255)</text>
+
+    <text x="762" y="705" class="col">name</text>
+    <text x="870" y="705" class="type">varchar(255)</text>
+
+    <text x="762" y="723" class="col">total_jobs</text>
+    <text x="870" y="723" class="type">int</text>
+
+    <text x="762" y="741" class="col">pending_jobs</text>
+    <text x="870" y="741" class="type">int</text>
+
+    <text x="762" y="759" class="col">failed_jobs</text>
+    <text x="870" y="759" class="type">int</text>
+
+    <text x="762" y="777" class="col">failed_job_ids</text>
+    <text x="870" y="777" class="type">longtext</text>
+
+    <text x="762" y="795" class="col">options</text>
+    <text x="870" y="795" class="type">mediumtext NULL</text>
+
+    <text x="762" y="813" class="col">cancelled_at</text>
+    <text x="870" y="813" class="type">int NULL</text>
+
+    <text x="762" y="831" class="col">created_at</text>
+    <text x="870" y="831" class="type">int</text>
+
+    <text x="762" y="849" class="col">finished_at</text>
+    <text x="870" y="849" class="type">int NULL</text>
+
+    <!-- ===== failed_jobs ===== -->
+    <rect x="40" y="560" width="320" height="170" class="fw-box"/>
+    <rect x="40" y="560" width="320" height="34" class="fw-head"/>
+    <text x="200" y="582" class="title-fw">failed_jobs</text>
+
+    <rect x="48" y="596" width="24" height="13" rx="2" class="badge-pk"/>
+    <text x="60" y="605.5" class="badge-t" fill="#1e3a77">PK</text>
+    <text x="82" y="607" class="col">id</text>
+    <text x="190" y="607" class="type">bigint unsigned</text>
+
+    <rect x="48" y="614" width="24" height="13" rx="2" class="badge-uq"/>
+    <text x="60" y="623.5" class="badge-t" fill="#78350f">UQ</text>
+    <text x="82" y="625" class="col">uuid</text>
+    <text x="190" y="625" class="type">varchar(255)</text>
+
+    <text x="82" y="643" class="col">connection</text>
+    <text x="190" y="643" class="type">text</text>
+
+    <text x="82" y="661" class="col">queue</text>
+    <text x="190" y="661" class="type">text</text>
+
+    <text x="82" y="679" class="col">payload</text>
+    <text x="190" y="679" class="type">longtext</text>
+
+    <text x="82" y="697" class="col">exception</text>
+    <text x="190" y="697" class="type">longtext</text>
+
+    <text x="82" y="715" class="col">failed_at</text>
+    <text x="190" y="715" class="type">timestamp · CURRENT</text>
+
+    <!-- ================= LEGEND ================= -->
+    <rect x="400" y="606" width="290" height="176" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.1"/>
+    <text x="414" y="622" fill="#334155" font-size="10" font-weight="700">Legenda</text>
+
+    <line x1="414" y1="642" x2="466" y2="642" stroke="#475569" stroke-width="1.5"/>
+    <line x1="414" y1="635" x2="414" y2="649" stroke="#475569" stroke-width="1.5"/>
+    <text x="474" y="646" fill="#475569" font-size="9">tepat satu (1)</text>
+
+    <line x1="414" y1="666" x2="466" y2="666" stroke="#475569" stroke-width="1.5"/>
+    <path d="M466,666 L478,657 M466,666 L478,666 M466,666 L478,675" stroke="#475569" stroke-width="1.5" fill="none"/>
+    <text x="486" y="670" fill="#475569" font-size="9">banyak (0..N)</text>
+
+    <line x1="414" y1="690" x2="466" y2="690" stroke="#475569" stroke-width="1.5"/>
+    <path d="M466,690 L478,681 M466,690 L478,690 M466,690 L478,699" stroke="#475569" stroke-width="1.5" fill="none"/>
+    <text x="486" y="694" fill="#475569" font-size="9">nol atau banyak</text>
+
+    <line x1="414" y1="714" x2="466" y2="714" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="6 4"/>
+    <line x1="466" y1="707" x2="466" y2="721" stroke="#94a3b8" stroke-width="1.4"/>
+    <text x="474" y="718" fill="#475569" font-size="9">relasi konseptual</text>
+
+    <text x="414" y="744" fill="#475569" font-size="9">PK primary key · UQ unique · FK relasi · IX index</text>
+    <text x="414" y="759" fill="#475569" font-size="9">sessions.user_id hanya index, tanpa constraint FK</text>
+
+    <!-- ================= NOTES ================= -->
+    <rect x="40" y="790" width="320" height="86" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.1"/>
+    <text x="54" y="810" fill="#334155" font-size="10" font-weight="700">Catatan</text>
+    <text x="54" y="828" fill="#475569" font-size="8.5">1. users—sessions: satu user punya banyak session aktif.</text>
+    <text x="54" y="843" fill="#475569" font-size="8.5">2. users—password_reset_tokens: dikaitkan lewat email,</text>
+    <text x="54" y="858" fill="#475569" font-size="8.5">    bukan user_id — tanpa constraint fisik.</text>
+    <text x="54" y="872" fill="#475569" font-size="8.5">3. Lima tabel framework tidak berelasi ke users.</text>
+</svg>

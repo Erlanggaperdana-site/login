@@ -1,0 +1,202 @@
+<mxfile host="app.diagrams.net" agent="Claude Code" version="24.7.17" type="device">
+  <diagram id="classdiagram-login" name="Class Diagram">
+    <mxGraphModel dx="1100" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ================= TITLE ================= -->
+        <mxCell id="title" value="Class Diagram — Aplikasi Login Multi Role" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=16;fontStyle=1;fontColor=#16294f;" vertex="1" parent="1">
+          <mxGeometry x="40" y="10" width="600" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="Laravel 12 · App\Models · App\Http\Controllers · App\Http\Middleware · Database\Factories" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#64748b;" vertex="1" parent="1">
+          <mxGeometry x="40" y="38" width="700" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- ================= ABSTRACT CONTROLLER ================= -->
+        <mxCell id="cls-controller" value="Controller" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;whiteSpace=wrap;fontSize=12;fontColor=#0f172a;fillColor=#e2e8f0;strokeColor=#334155;swimlaneFillColor=#f8fafc;" vertex="1" parent="1">
+          <mxGeometry x="380" y="80" width="280" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="cls-controller-st" value="«abstract»" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;fontColor=#475569;" vertex="1" parent="cls-controller">
+          <mxGeometry x="0" y="26" width="280" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cls-controller-body" value="(tidak ada anggota — base class)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontStyle=2;fontColor=#94a3b8;spacingLeft=6;" vertex="1" parent="cls-controller">
+          <mxGeometry x="0" y="46" width="280" height="24" as="geometry" />
+        </mxCell>
+
+        <!-- ================= AUTH CONTROLLER ================= -->
+        <mxCell id="cls-auth" value="AuthController" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;whiteSpace=wrap;fontSize=12;fontColor=#0f172a;fillColor=#f1f5f9;strokeColor=#94a3b8;swimlaneFillColor=#ffffff;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="40" y="230" width="290" height="146" as="geometry" />
+        </mxCell>
+        <mxCell id="cls-auth-st" value="«controller»" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;fontColor=#475569;fontFamily=Helvetica;" vertex="1" parent="cls-auth">
+          <mxGeometry x="0" y="26" width="290" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cls-auth-body" value="+ showLogin() : View&#10;+ login(Request) : RedirectResponse&#10;+ showRegister() : View&#10;+ register(Request) : RedirectResponse&#10;+ logout(Request) : RedirectResponse" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=11;fontColor=#1e293b;spacingLeft=6;spacingTop=2;fontFamily=Courier New;" vertex="1" parent="cls-auth">
+          <mxGeometry x="0" y="46" width="290" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- ================= DASHBOARD CONTROLLER ================= -->
+        <mxCell id="cls-dashboard" value="DashboardController" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;whiteSpace=wrap;fontSize=12;fontColor=#0f172a;fillColor=#f1f5f9;strokeColor=#94a3b8;swimlaneFillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="360" y="230" width="270" height="106" as="geometry" />
+        </mxCell>
+        <mxCell id="cls-dashboard-st" value="«controller»" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;fontColor=#475569;" vertex="1" parent="cls-dashboard">
+          <mxGeometry x="0" y="26" width="270" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cls-dashboard-body" value="+ admin() : View&#10;+ customer() : View" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=11;fontColor=#1e293b;spacingLeft=6;spacingTop=2;fontFamily=Courier New;" vertex="1" parent="cls-dashboard">
+          <mxGeometry x="0" y="46" width="270" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- ================= USER CONTROLLER ================= -->
+        <mxCell id="cls-userctrl" value="UserController" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;whiteSpace=wrap;fontSize=12;fontColor=#0f172a;fillColor=#f1f5f9;strokeColor=#94a3b8;swimlaneFillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="660" y="230" width="330" height="126" as="geometry" />
+        </mxCell>
+        <mxCell id="cls-userctrl-st" value="«controller»" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;fontColor=#475569;" vertex="1" parent="cls-userctrl">
+          <mxGeometry x="0" y="26" width="330" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cls-userctrl-body" value="+ index() : View&#10;+ store(Request) : RedirectResponse&#10;+ update(Request, User) : RedirectResponse&#10;+ destroy(Request, User) : RedirectResponse" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=11;fontColor=#1e293b;spacingLeft=6;spacingTop=2;fontFamily=Courier New;" vertex="1" parent="cls-userctrl">
+          <mxGeometry x="0" y="46" width="330" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- ================= ROLE MIDDLEWARE ================= -->
+        <mxCell id="cls-middleware" value="RoleMiddleware" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;whiteSpace=wrap;fontSize=12;fontColor=#0f172a;fillColor=#f1f5f9;strokeColor=#94a3b8;swimlaneFillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="660" y="420" width="330" height="106" as="geometry" />
+        </mxCell>
+        <mxCell id="cls-middleware-st" value="«middleware»" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;fontColor=#475569;" vertex="1" parent="cls-middleware">
+          <mxGeometry x="0" y="26" width="330" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cls-middleware-body" value="+ handle(Request, Closure, ...roles) : Response" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=11;fontColor=#1e293b;spacingLeft=6;spacingTop=2;fontFamily=Courier New;" vertex="1" parent="cls-middleware">
+          <mxGeometry x="0" y="46" width="330" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- ================= USER MODEL ================= -->
+        <mxCell id="cls-user" value="User" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;whiteSpace=wrap;fontSize=13;fontColor=#16294f;fillColor=#eef4ff;strokeColor=#3b6fd4;strokeWidth=2;swimlaneFillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="200" y="420" width="330" height="296" as="geometry" />
+        </mxCell>
+        <mxCell id="cls-user-st" value="«model»" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;fontColor=#475569;" vertex="1" parent="cls-user">
+          <mxGeometry x="0" y="26" width="330" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cls-user-attrs" value="- id : bigint&#10;- name : string&#10;- email : string&#10;- password : string&#10;- role : string&#10;- email_verified_at : datetime&#10;- remember_token : string&#10;- created_at : datetime&#10;- updated_at : datetime" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=11;fontColor=#1e293b;spacingLeft=6;spacingTop=2;fontFamily=Courier New;" vertex="1" parent="cls-user">
+          <mxGeometry x="0" y="46" width="330" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="cls-user-sep" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#cbd5e1;" vertex="1" parent="cls-user">
+          <mxGeometry x="0" y="186" width="330" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="cls-user-const" value="+ ROLE_ADMIN = &quot;admin&quot;&#10;+ ROLE_CUSTOMER = &quot;customer&quot;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=11;fontColor=#1e293b;spacingLeft=6;spacingTop=2;fontFamily=Courier New;fontStyle=4;" vertex="1" parent="cls-user">
+          <mxGeometry x="0" y="194" width="330" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="cls-user-sep2" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#cbd5e1;" vertex="1" parent="cls-user">
+          <mxGeometry x="0" y="234" width="330" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="cls-user-methods" value="+ isAdmin() : bool&#10;+ isCustomer() : bool" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=11;fontColor=#1e293b;spacingLeft=6;spacingTop=2;fontFamily=Courier New;" vertex="1" parent="cls-user">
+          <mxGeometry x="0" y="242" width="330" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- ================= AUTHENTICATABLE (LARAVEL) ================= -->
+        <mxCell id="cls-authbase" value="Authenticatable" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;whiteSpace=wrap;fontSize=12;fontColor=#0f172a;fillColor=#e2e8f0;strokeColor=#334155;swimlaneFillColor=#f8fafc;" vertex="1" parent="1">
+          <mxGeometry x="200" y="750" width="330" height="106" as="geometry" />
+        </mxCell>
+        <mxCell id="cls-authbase-st" value="«abstract · Laravel»" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;fontColor=#475569;" vertex="1" parent="cls-authbase">
+          <mxGeometry x="0" y="26" width="330" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cls-authbase-body" value="# guard_name : string&#10;+ getAuthIdentifier() : mixed&#10;+ getAuthPassword() : string" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=11;fontColor=#1e293b;spacingLeft=6;spacingTop=2;fontFamily=Courier New;" vertex="1" parent="cls-authbase">
+          <mxGeometry x="0" y="46" width="330" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- ================= USER FACTORY ================= -->
+        <mxCell id="cls-factory" value="UserFactory" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;whiteSpace=wrap;fontSize=12;fontColor=#0f172a;fillColor=#f1f5f9;strokeColor=#94a3b8;swimlaneFillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="660" y="580" width="330" height="138" as="geometry" />
+        </mxCell>
+        <mxCell id="cls-factory-st" value="«factory»" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;fontColor=#475569;" vertex="1" parent="cls-factory">
+          <mxGeometry x="0" y="26" width="330" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cls-factory-attr" value="# password : ?string (static)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=11;fontColor=#1e293b;spacingLeft=6;spacingTop=2;fontFamily=Courier New;" vertex="1" parent="cls-factory">
+          <mxGeometry x="0" y="46" width="330" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="cls-factory-sep" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#cbd5e1;" vertex="1" parent="cls-factory">
+          <mxGeometry x="0" y="70" width="330" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="cls-factory-body" value="+ definition() : array&#10;+ admin() : static&#10;+ unverified() : static" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=11;fontColor=#1e293b;spacingLeft=6;spacingTop=2;fontFamily=Courier New;" vertex="1" parent="cls-factory">
+          <mxGeometry x="0" y="78" width="330" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- ================= INHERITANCE ================= -->
+        <mxCell id="e-inh-auth" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=0;strokeColor=#334155;strokeWidth=1.6;" edge="1" parent="1" source="cls-auth" target="cls-controller" exitX="0.5" exitY="0" entryX="0" entryY="0.5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="185" y="115" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-inh-dash" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=0;strokeColor=#334155;strokeWidth=1.6;" edge="1" parent="1" source="cls-dashboard" target="cls-controller" exitX="0.5" exitY="0" entryX="0.5" entryY="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-inh-userctrl" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=0;strokeColor=#334155;strokeWidth=1.6;" edge="1" parent="1" source="cls-userctrl" target="cls-controller" exitX="0.5" exitY="0" entryX="1" entryY="0.5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="825" y="115" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-inh-user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=0;strokeColor=#334155;strokeWidth=1.6;" edge="1" parent="1" source="cls-user" target="cls-authbase" exitX="0.5" exitY="1" entryX="0.5" entryY="0">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ================= DEPENDENCIES ================= -->
+        <mxCell id="e-dep-auth" value="«use»" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endSize=8;dashed=1;strokeColor=#64748b;strokeWidth=1.3;fontSize=9;fontColor=#475569;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cls-auth" target="cls-user" exitX="0.5" exitY="1" entryX="0.15" entryY="0">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="185" y="400" />
+              <mxPoint x="250" y="400" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-dep-dash" value="«use»" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endSize=8;dashed=1;strokeColor=#64748b;strokeWidth=1.3;fontSize=9;fontColor=#475569;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cls-dashboard" target="cls-user" exitX="0.5" exitY="1" entryX="0.55" entryY="0">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-dep-userctrl" value="«use»" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endSize=8;dashed=1;strokeColor=#64748b;strokeWidth=1.3;fontSize=9;fontColor=#475569;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cls-userctrl" target="cls-user" exitX="0.5" exitY="1" entryX="0.85" entryY="0">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="825" y="400" />
+              <mxPoint x="480" y="400" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-dep-mw" value="«melindungi»" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endSize=8;dashed=1;strokeColor=#64748b;strokeWidth=1.3;fontSize=9;fontColor=#475569;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cls-middleware" target="cls-user" exitX="0" exitY="0.5" entryX="1" entryY="0.5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-dep-factory" value="«create»" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endSize=8;dashed=1;strokeColor=#64748b;strokeWidth=1.3;fontSize=9;fontColor=#475569;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="cls-factory" target="cls-user" exitX="0" exitY="0.5" entryX="1" entryY="0.8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ================= LEGEND ================= -->
+        <mxCell id="legend" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="660" y="750" width="330" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-title" value="Legenda" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=11;fontStyle=1;fontColor=#334155;" vertex="1" parent="1">
+          <mxGeometry x="672" y="758" width="200" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-inh" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=0;strokeColor=#334155;strokeWidth=1.6;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="674" y="790" as="sourcePoint" />
+            <mxPoint x="724" y="790" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend-inh-t" value="inheritance (extends)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#475569;" vertex="1" parent="1">
+          <mxGeometry x="732" y="780" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-dep" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;endSize=8;dashed=1;strokeColor=#64748b;strokeWidth=1.3;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="674" y="812" as="sourcePoint" />
+            <mxPoint x="724" y="812" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend-dep-t" value="dependency (memakai / membuat)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#475569;" vertex="1" parent="1">
+          <mxGeometry x="732" y="802" width="220" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-v" value="- private   # protected   + public   ·   garis bawah = konstanta" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#475569;" vertex="1" parent="1">
+          <mxGeometry x="672" y="826" width="310" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
